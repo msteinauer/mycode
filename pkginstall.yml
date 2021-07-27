@@ -1,0 +1,18 @@
+---
+        - name: Playbook - Install figlet    # metadata
+          hosts: planetexpress:!farnsworth:!bender   # we want to take the planetexpress group and remove Farnsworth and bender
+          connection: ssh     # default is to use the connection plugin ssh.py
+          gather_facts: yes   # default is yes
+
+
+          tasks:                             # a list of what we want to do 
+          - name: using apt to install figlet  # metadata
+
+            apt:                     # the module we want to run, apt.py
+               pkg:
+                - figlet         # parameter name has the value figlet
+                - cowsay        # parameter name has the value cowsway
+                - bastet         # parameter name has the value bastet
+               state: present       # parameter state has the value present
+            become: yes              # elevate status to admin, sudo, enable, etc
+
