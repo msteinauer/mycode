@@ -13,6 +13,6 @@
                 - figlet         # parameter name has the value figlet
                 - cowsay        # parameter name has the value cowsway
                 - bastet         # parameter name has the value bastet
-               state: present       # parameter state has the value present
+               state: absent       # parameter state has the value present
             become: yes              # elevate status to admin, sudo, enable, etc
 
