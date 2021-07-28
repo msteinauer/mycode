@@ -1,0 +1,17 @@
+- name: Wednesday Morning Challenge
+  hosts: planetexpress
+  vars:
+   host_ips:       
+   - host: bender
+     ip: 10.10.2.3
+   - host: fry
+     ip: 10.10.2.4
+   - host: zoidberg
+     ip: 10.10.2.5
+   - host: farnsworth
+     ip: 10.10.2.3
+  tasks:
+  - name: Push Host IP Config file
+    template:
+      src: host_and_ip.j2
+      dest: ~/host_ips
