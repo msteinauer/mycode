@@ -1,0 +1,22 @@
+- name: Confirm sl package is up to date
+  package:
+    name: sl
+    state: latest
+  become: True   
+- name: Confirm cowsay is up to date
+  package:
+    name: cowsay
+    state: latest
+  become: True    
+- name: Confirm bastet is up to date
+  package:
+    name: bastet
+    state: latest
+  become: True
+  when: ansible_distribution == "Ubuntu"
+
+- name: Add in a log entry
+  lineinfile:
+    path: ~/loggy.log
+    line: "{{ ansible_date_time.iso8601 }} - Passed Checkup"
+    create: True
